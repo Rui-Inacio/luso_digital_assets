@@ -15,7 +15,7 @@ class TodoController extends Controller {
 
     public function create(Request $request) {
         $validator = $request->validate([
-            'title' => 'required',
+            'title' => 'required|max:255',
             'status' => [new Enum(TodoStatus::class)],
         ]);
 
@@ -39,7 +39,7 @@ class TodoController extends Controller {
 
     public function update(Request $request) {
         $validator = $request->validate([
-            'title' => 'required',
+            'title' => 'required|max:255',
             'status' => [new Enum(TodoStatus::class)],
         ]);
 
